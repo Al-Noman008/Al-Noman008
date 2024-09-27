@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File upload</title>
+    <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+  
+</head>
+<body>
+    <h1>upload file here</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >upload</button>
+  
+    </form>
+     
+<h2>upload file </h2>
+<ul>
+    {% for document in documents %}
+    <li>{{ document.title }} - <a href="{{ document.file.urls }}">Download</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>
