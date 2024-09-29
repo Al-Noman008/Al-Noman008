@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>upload file here</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" >upload</button>
@@ -18,8 +18,9 @@
      
 <h2>upload file </h2>
 <ul>
-    {% for document in documents %}
-    <li>{{ document.title }} - <a href="{{ document.file.urls }}">Download</a></li>
+    {% for file in documents %}
+    <li>{{ file.title }} - <a href="{{ file.file.urls }}">Download</a></li>
+    <li>{{ file.title }} - <a href="{{ file.file2.urls }}">Download2</a></li>
     {% endfor %}
 </ul>
 </body>
